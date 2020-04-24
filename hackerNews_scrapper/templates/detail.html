@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <header>
+    <h1>{{item.get('title')}}<h1>
+    <div>
+      {{item.get('points')}} points | By {{item.get('author')}} |
+      <a href = {{item.get('url')}}>{{item.get('url')}}</a>
+    </div>
+  </header>
+  <main>
+    {% if children: %}
+    {% for comment in children %}
+    <div>
+      {% if comment.get('author'): %}
+        <strong>{{comment.get('author')}}:</strong>
+        {{comment.get('text') | safe}}
+      {% else: %}
+        <p>[deleted]</p>
+      {% endif %}
+    </div>
+    <hr>
+    {% endfor %}
+    {% endif %}
+  </main>
+</body>
+
+</html>

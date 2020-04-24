@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <header>
+    <h1>YoonHo's News</h1>
+    <div> Order by: 
+      {% if order_by == 'popular' %}
+      <strong>Popular</strong>
+      |
+      <a href="/?order_by=new">New</a>
+      {% elif order_by == 'new' %}
+      <a href="/?order_by=popular">Popular</a>
+      |
+      <strong>New</strong>
+      {% endif %}
+    </div>
+  </header>
+
+  <main>
+    {% for item in items %}
+    <div>
+      <div>
+        <a href="/:{{item.objectID}}">{{item.get('title')}}</a>
+        (
+        <a href={{item.url}}>{{item.url}}</a>
+        )
+      </div>
+      <div>
+        {{item.points}} points |
+        By: {{item.get('author')}} |
+        {{item.get('num_comments')}} comments
+      </div>
+    </div>
+    <hr>
+    {% endfor %}
+  </main>
+</body>
+
+</html>
