@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>
+    Reddit Reader
+  </title>
+  <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+</head>
+
+<body>
+  <header>
+    <h1>Reddit Reader</h1>
+    <h3>Couldn't add subreddit</h3>   
+  </header>
+  <main>
+    {% if startWithR %}
+    <h4>Write the name without /r/.</h4>
+    {% else %}
+    <h4>That subreddit doesn't exist.</h4>
+    {% endif %}
+    <a href="/">← Go back</a>
+  </main>
+</body>
+
+</html>
